@@ -37,8 +37,9 @@
 					<string>entity.name.function.sql</string>
 				</dict>
 			</dict>
+			<!-- added: https://github.com/textmate/sql.tmbundle/pull/22/commits/804a91ad20c4e1894d55660f41eea8e2c8b9027b -->
 			<key>match</key>
-			<string>(?i:^\s*(create(?:\s+or\s+replace)?)\s+(aggregate|conversion|database|domain|function|group|(unique\s+)?index|language|operator class|operator|rule|schema|sequence|table|tablespace|trigger|type|user|view)\s+)(['"`]?)(\w+)\4</string>
+			<string>(?i:^\s*(create(?:\s+or\s+replace)?)\s+(aggregate|conversion|database|domain|function|group|(unique\s+)?index|language|operator class|operator|rule|schema|sequence|(temp(?:orary)?\s+)?table|tablespace|(temp(?:orary)?\s+)?trigger|type|user|(temp(?:orary)?\s+)?view)\s+)(['"`]?)(\w+)\4</string>
 			<key>name</key>
 			<string>meta.create.sql</string>
 		</dict>
@@ -225,7 +226,8 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i:\b(select(\s+distinct)?|insert\s+(ignore\s+)?into|update|delete|from|set|where|group\sby|or|like|and|union(\s+all)?|having|order\sby|limit|(inner|cross)\s+join|join|straight_join|(left|right)(\s+outer)?\s+join|natural(\s+(left|right)(\s+outer)?)?\s+join)\b)</string>
+			<!-- added: https://github.com/textmate/sql.tmbundle/pull/17 -->
+			<string>(?i:\b(select(\s+distinct)?|insert\s+(ignore\s+)?into|update|delete|from|use|declare|set|where|group\sby|or|like|and|union(\s+all)?|having|order\sby|limit|(inner|cross)\s+join|join|straight_join|(left|right)(\s+outer)?\s+join|natural(\s+(left|right)(\s+outer)?)?\s+join)\b)</string>
 			<key>name</key>
 			<string>keyword.other.DML.sql</string>
 		</dict>
@@ -236,8 +238,9 @@
 			<string>keyword.other.DDL.create.II.sql</string>
 		</dict>
 		<dict>
+			<!-- added: https://github.com/textmate/sql.tmbundle/pull/15/commits -->
 			<key>match</key>
-			<string>(?i:\bvalues\b)</string>
+			<string>(?i:\b(values|go|into|exec|openquery)\b)</string>
 			<key>name</key>
 			<string>keyword.other.DML.II.sql</string>
 		</dict>
@@ -409,6 +412,7 @@
 						</dict>
 					</array>
 				</dict>
+				<!-- see: https://github.com/textmate/sql.tmbundle/pull/16/commits/1dae1d57dcbd0b3d5a70985d0fc5a38b46248d8b
 				<dict>
 					<key>begin</key>
 					<string>(^[ \t]+)?(?=#)</string>
@@ -441,7 +445,7 @@
 							<string>comment.line.number-sign.sql</string>
 						</dict>
 					</array>
-				</dict>
+				</dict> -->
 				<dict>
 					<key>begin</key>
 					<string>/\*</string>
